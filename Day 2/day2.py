@@ -1,14 +1,14 @@
 '''Day 2 of the advent.'''
-import numpy as np
 
+#Reading input:
 with open('Day 2\levels.txt', 'r') as file:
     lines = []
     for line in file:
         line = line.strip('\n').split(' ')
         lines.append(line)
+#--------------------------------------------------------------------
 
-level_evaluation = []
-
+#-------Functions--------------------------------------
 def check_level(report: list) -> int:
     '''This fucntion checks the report list and returns 1 if level is safe, or 0 if unsafe. Needs a report list.'''
     #Setting initial conditions and exiting if already found no change:
@@ -43,6 +43,9 @@ def problem_damper(report: list ) -> int:
             return 1
     return 0
 
+
+#-------EVALUATION--------------------------------------
+level_evaluation = []
 for level in lines:
 
     first_result = check_level(level)
@@ -50,9 +53,5 @@ for level in lines:
         level_evaluation.append(1)
     else:
         level_evaluation.append(problem_damper(level))
-
-    
         
-
-
 print(sum(level_evaluation))
